@@ -1,0 +1,25 @@
+.tasks__wrapper {
+    max-width: var(--max-width);
+    padding: 0;
+    margin: 0 auto;
+}
+
+.tasks {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: stretch;
+}
+
+.tasks__wrapper .header {
+    max-width: 65rem;
+}
+
+.tasks .tasks__item {
+    height: 30rem !important;
+    padding: 0.8rem;
+    width: 25%;
+    box-sizing: border-box;
+    position: relative;
+}

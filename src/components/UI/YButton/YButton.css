@@ -1,0 +1,10 @@
+.button {
+    width: fit-content;
+    background-color: #FFD21E;
+    line-height: normal;
+    padding: 1.6rem var(--padding-right) 1.6rem var(--padding-left);
+    border-radius: 1.6rem;
+    margin-right: 1.6rem;
+    font-size: var(--font-size);
+    cursor: pointer;
+}

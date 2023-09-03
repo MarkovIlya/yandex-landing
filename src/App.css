@@ -1,38 +1,154 @@
-.App {
-  text-align: center;
+:root {
+
+    --scale: 10px;
+    --max-width: 120rem;
+    --margin-top-section: -7rem;
+    --padding-top: 9.6rem;
+    --padding-bottom: 9.6rem;
+    --padding-left: 2rem;
+    --padding-right: 2rem;
+    --border-radius: 7rem;
+    --font-size: 2rem;
+    --offsets-background-color: #d9d9d9;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@media (min-width: 768px) and (max-width: 1440px) {
+    :root {
+        --scale: calc(100vw / 144.0);
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@media screen and (max-width: 979px) {
+    :root {
+        max-width: 100%;
+        --padding-left: 20px;
+        --padding-right: 20px;
+        --font-size: 1.5rem;
+    }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+html, body {
+    font-size: var(--scale) !important;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    background: #fff;
 }
 
-.App-link {
-  color: #61dafb;
+.text-block {
+    margin: 0;
+    font-family: var(--font-family);
+    font-weight: var(--font-weight);
+    letter-spacing: var(--letter-spacing);
+    color: var(--color);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.carousel {
+    max-width: var(--max-width);
+    padding: 0;
+    margin: 0 auto;
+}
+
+.page {
+    position: relative;
+    display: block;
+}
+
+.offsets {
+
+    padding: var(--padding-top) var(--padding-right) calc(var(--padding-bottom) + var(--border-radius)) var(--padding-left) !important;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--offsets-background-color);
+    background-position: 50%;
+    background-size: cover;
+    overflow-x: clip;
+}
+
+.alice-carousel {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    direction: ltr;
+}
+
+.alice-carousel__wrapper {
+    padding: 5.5rem;
+    background-color: #e7eafd;
+    border-radius: 2.4rem;
+}
+
+.alice-carousel__prev-btn, .alice-carousel__next-btn {
+    width: 4.8rem !important;
+    height: 4.8rem !important;
+    background: url(https://avatars.mds.yandex.net/get-lpc/1635340/b77f9af1-04b0-428a-9eb7-0ab6dfeb9cd8/orig) center center no-repeat #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    margin-top: -22px;
+}
+
+.alice-carousel__stage-item {
+}
+
+.img_wrapper {
+    height: 70rem;
+    margin: 0 2rem;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.alice-carousel__prev-btn {
+    left: -2.5rem;
+    transform: rotate(180deg);
+}
+
+.alice-carousel__next-btn {
+    right: -2.5rem;
+
+}
+
+.alice-carousel__next-btn-wrapper, .alice-carousel__prev-btn-wrapper {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.alice-carousel__next-btn-item, .alice-carousel__prev-btn-item {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 0 !important;
+    font-size: large;
+    color: transparent !important;
+}
+
+header {
+    max-width: calc(var(--max-width) + 4rem);
+    padding: 4.1rem 2rem;
+    margin: 0 auto;
+}
+
+.header-logo {
+    width: 14.9rem !important;
+    height: 4.2rem !important;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

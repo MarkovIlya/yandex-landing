@@ -1,0 +1,42 @@
+
+.spoiler-item__header {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+    padding: 0.8em 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-weight: 400;
+    font-size: 2.8rem;
+    line-height: 150%;
+}
+
+.text-block_size_s28 {
+    font-size: 28px;
+    line-height: 36px;
+}
+
+.spoiler-item-text {
+    padding: 3.2rem;
+    background: #F4F7FA;
+    border-radius: 2.4rem;
+}
+
+.spoiler-item-text__text {
+    font-weight: 400;
+    font-size: 1.8rem;
+    line-height: 150%;
+    white-space: pre-wrap;
+}
+
+
+
+hr {
+    margin: 20px 0;
+    padding: 0;
+    height: 0;
+    background-color: #f4f7fa;
+}
