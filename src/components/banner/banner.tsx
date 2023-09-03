@@ -5,10 +5,11 @@ import {YButton} from "../UI/YButton/YButton";
 interface BannerProps {
     title: string,
     body: string,
-    buttons: { text: string, onClick: () => void }[]
+    buttons?: { text: string, onClick: () => void }[],
+    children?: React.ReactNode
 }
 
-export function Banner({title, body, buttons} : BannerProps) {
+export function Banner({title, body, buttons, children} : BannerProps) {
     return (
         <>
             <div className="banner">
@@ -16,7 +17,7 @@ export function Banner({title, body, buttons} : BannerProps) {
                     <h1 className="text-block" style={{"--font-family": "Arial", "--font-weight": "bold"} as React.CSSProperties}>{title}</h1>
                     <p className="text-block" style={{"--font-family": "Arial", "--color": "rgba(85, 50, 150, 0.8)"} as React.CSSProperties}>{body}</p>
                     <div className="button_list">
-                        {buttons.map(button => (
+                        {buttons?.map(button => (
                             <YButton text={button.text} onClick={button.onClick}/>
                         ))}
                     </div>
@@ -24,6 +25,7 @@ export function Banner({title, body, buttons} : BannerProps) {
                 <div className="image">
 
                 </div>
+                {children}
             </div>
         </>
     )

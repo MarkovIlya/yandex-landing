@@ -3,6 +3,7 @@ import "./tasks.css"
 import {Task} from "../task/task";
 
 interface TasksProps {
+    title: string
     tasks: {
         headerText: string
         bodyText?: string
@@ -10,11 +11,11 @@ interface TasksProps {
     }[]
 }
 
-export function Tasks({tasks}: TasksProps) {
+export function Tasks({title, tasks}: TasksProps) {
     return (
         <div className="tasks__wrapper">
             <div className="text-block header" style={{"--font-family": "Arial", "--color": "white"} as React.CSSProperties}>
-                Какие задачи помогает решать сервис
+                {title}
             </div>
             <div className="tasks">
                 {tasks.map(task => (

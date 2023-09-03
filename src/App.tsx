@@ -8,7 +8,7 @@ import {Feature} from "./components/feature/feature";
 import {Task} from "./components/task/task";
 import {Tasks} from "./components/tasks/tasks";
 
-const qA = [
+const questionsAnswers = [
     {
         headerText: "Кто будет видеть мои данные?",
         bodyText: "Никто, данные обезличиваются и агрегируются с данными Яндекса, Яндекс Маркета и магазинов партнёров"
@@ -52,6 +52,22 @@ const qA = [
     },
 ];
 
+const answers = [
+    {
+        headerText: "Я продавец",
+        bodyText: "— Подайте заявку на подключение\n" +
+            "— Передайте данные о продажах\n"
+    },
+    {
+        headerText: "Я производитель",
+        bodyText: "— Подайте заявку на подключение\n— Подключите услугу Ecom Аналитики после того, " +
+            "как менеджер сервиса выдаст вам доступ в кабинет производителя\n" +
+            "— Пополните счёт и переходите в сервис для включения нужных категорий\n" +
+            "— Получите данные по рынку \n"
+    },
+
+];
+
 const buttons = [
     {
         text: "Заказать исследование",
@@ -60,7 +76,11 @@ const buttons = [
     {
         text: "Подключиться",
         onClick: () => {}
-    }
+    },
+    {
+        text: "Задать вопрос",
+        onClick: () => {}
+    },
 ];
 
 
@@ -124,7 +144,7 @@ const reports = [
 
 ]
 
-const tasks = [
+const tasks1 = [
     {
         headerText: "Оценка рынка",
         bodyText: "Оцените возможности для роста бизнеса в интернете",
@@ -155,11 +175,33 @@ const tasks = [
     },
 ];
 
+const tasks2 = [
+    {
+        headerText: "Собираем данные",
+        bodyText: "От магазинов партнёров\n" +
+            "От Яндекс Маркета — о категориях, товарах и их характеристиках\n" +
+            "От Яндекса — о пользователях и поисковых запросах\n",
+    },
+    {
+        headerText: "Создаём модель",
+        bodyText: "Знания о видимой части рынка",
+    },
+    {
+        headerText: "Распознаём и обогащаем данные",
+        bodyText: "Смоделированные алгоритмами недостающие знания",
+    },
+    {
+        headerText: "Формируем отчёты",
+        bodyText: "Структурирование обезличенных знаний\n" +
+            "Получаем полную картину рынка",
+    },
+];
+
 function App() {
     return (
         <div className="page">
             <header>
-                <div className="header-logo">
+                <div className="logo">
                     <img src="https://avatars.mds.yandex.net/get-lpc/1635340/9fa4e259-3ffa-4190-bba6-b4d81cb6c51c/orig"
                          alt=""/>
                 </div>
@@ -168,8 +210,8 @@ function App() {
                 <Banner
                     title="Мы научились генерировать картинки для ряда рекламных рубрик."
                     body="Будем предлагать их пользователям на этапе выбора изображений для рекламных материалов.
-                   Ecom Аналитика"
-                    buttons={buttons}
+                    Ecom Аналитика"
+                    buttons={[buttons[0], buttons[1]]}
                 />
             </div>
             <div className="offsets" style={{"--offsets-background-color": "#3287ff"} as React.CSSProperties}>
@@ -180,11 +222,11 @@ function App() {
                     buttons={[buttons[1]]}
                 />
             </div>
-            <div className="offsets" style={{"--offsets-background-color": "#131720"} as React.CSSProperties}>
+            <div className="offsets" style={{"--offsets-background-color": "#f4f7fa"} as React.CSSProperties}>
                 <div className="carousel">
                     <div
                         className="text-block header"
-                        style={{"--font-family": "Arial", "--color": "white", "max-width": "65rem"} as
+                        style={{"--font-family": "Arial", "--color": "black", "max-width": "65rem"} as
                             React.CSSProperties}
                     >
                         Что предлагает сервис
@@ -200,15 +242,14 @@ function App() {
                     />
                 </div>
             </div>
-            <div className="offsets" style={{"--offsets-background-color": "#f4f7fa"} as React.CSSProperties}>
 
-            </div>
             <div className="offsets" style={{"--offsets-background-color": "#131720"} as React.CSSProperties}>
-                <Tasks tasks={tasks}/>
+                <Tasks title="Какие задачи помогает решать сервис" tasks={tasks1}/>
             </div>
             <div className="offsets" style={{"--offsets-background-color": "#f4f7fa"} as React.CSSProperties}>
                 <div className="carousel">
-                    <div className="text-block header" style={{"--font-family": "Arial", "max-width": "65rem"} as React.CSSProperties}>
+                    <div className="text-block header" style={{"--font-family": "Arial", "max-width": "65rem"} as
+                        React.CSSProperties}>
                         Как выглядят отчёты
                     </div>
                     <AliceCarousel
@@ -220,9 +261,99 @@ function App() {
                     />
                 </div>
             </div>
-            <div className="offsets" style={{"--offsets-background-color": "#f4f7fa"} as React.CSSProperties}>
-                <QuestionsAnswers questionsAnswers={qA}/>
+
+            <div className="offsets" style={{"--offsets-background-color": "#131720"} as React.CSSProperties}>
+                <Tasks title="Как мы работаем с данными" tasks={tasks2}/>
             </div>
+            <div className="offsets" style={{"--offsets-background-color": "#f4f7fa"} as React.CSSProperties}>
+                <Banner
+                    title="Как получить доступ к данным"
+                    body="Набор доступных данных в каждой категории зависит от вашего объёма
+                    продаж в ней. Подробнее — в Справке. 
+                    Как открыть доступ в личный кабинет:"
+                    buttons={[buttons[1], buttons[2]]}
+                >
+                    <QuestionsAnswers questionsAnswers={answers}/>
+                </Banner>
+            </div>
+            <div className="offsets" style={{"--offsets-background-color": "#3287ff"} as React.CSSProperties}>
+                <div className="carousel">
+                    <div className="text-block header" style={{"--font-family": "Arial", "max-width": "65rem"} as
+                        React.CSSProperties}>
+                        Кейсы партнёров
+                    </div>
+                    <AliceCarousel
+                        mouseTracking
+                        items={reports}
+                        infinite={true}
+                        paddingLeft={20}
+                        paddingRight={20}
+                    />
+                </div>
+            </div>
+            <div className="offsets" style={{"--offsets-background-color": "white"} as React.CSSProperties}>
+                <QuestionsAnswers title="Вопросы и ответы" questionsAnswers={questionsAnswers}/>
+            </div>
+            <footer>
+                <div className="footer-top">
+                    <div className="logo">
+                        <img src="https://avatars.mds.yandex.net/get-lpc/1635340/9fa4e259-3ffa-4190-bba6-b4d81cb6c51c/orig"
+                             alt=""/>
+                    </div>
+                </div>
+                <div className="footer-bottom">
+                    <div className="footer-left">
+                        <nav className="navigation-menu">
+                            <ul className="navigation-menu__wrapper">
+                                <li className="navigation-menu__item">
+                                    <a
+                                        className="text-block"
+                                        href="https://partner.market.yandex.ru/welcome/"
+                                        target="_blank"
+                                        rel="noopener"
+                                        style={{"--color": "#81899A", "--text-decoration": "none",
+                                            "--font-family": "Arial",} as React.CSSProperties}
+                                    >
+                                        Сайт для партнёров
+                                    </a>
+                                </li>
+                                <li className="navigation-menu__item">
+                                    <a
+                                        className="text-block"
+                                        href="https://yandex.ru/legal/confidential/"
+                                        target="_blank"
+                                        rel="noopener"
+                                        style={{"--color": "#81899A", "--text-decoration": "none",
+                                            "--font-family": "Arial",} as React.CSSProperties}
+                                    >
+                                        Политика конфиденциальности
+                                    </a>
+                                </li>
+                                <li className="navigation-menu__item">
+                                    <a
+                                        className="text-block"
+                                        href="https://forms.yandex.ru/surveys/13473709.a3a02c08965ffcb86ee9ff745a97fd464cffb2d4/"
+                                        target="_blank"
+                                        rel="noopener"
+                                        style={{"--color": "#81899A", "--text-decoration": "none",
+                                            "--font-family": "Arial",} as React.CSSProperties}
+                                    >
+                                        Задать вопрос
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div className="footer-right">
+                        <p className="text-block"
+                           style={{"--color": "#81899A", "--text-decoration": "none",
+                               "--font-family": "Arial",} as React.CSSProperties}
+                        >
+                            ©2023 ООО «Яндекс»
+                        </p>
+                    </div>
+                </div>
+            </footer>
 
         </div>
     );
