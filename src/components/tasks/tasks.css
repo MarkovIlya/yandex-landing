@@ -23,3 +23,13 @@
     box-sizing: border-box;
     position: relative;
 }
+
+@media screen and (max-width: 979px) {
+    .tasks .tasks__item {
+        height: 30rem !important;
+        padding: 0.8rem;
+        width: 50%;
+        box-sizing: border-box;
+        position: relative;
+    }
+}
